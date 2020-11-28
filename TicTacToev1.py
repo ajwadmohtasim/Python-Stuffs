@@ -9,6 +9,11 @@ player_choice = ''
 AI_choice = ''
 first_turn = 0
 starting_player = ''
+win_count = 0
+lose_count = 0
+draw_count = 0
+winner_number = 0
+
 
 #Starting with name....
 print("What's your name? : ", end='')
@@ -160,45 +165,84 @@ def process_input(cur_player, cur_choice):
     values[cur_choice] = cur_player
     print_tic_tac_toe(values)
     
+    global winner_number
+    if cur_player == player_choice:
+        winner_number = 1
+    elif cur_player == AI_choice:
+        winner_number = 0
+        
+    # #check tie
+    # if ' ' not in values[0-9]:
+    #     winner_number = 2
+    # who_win(winner_number)
+    
     while True:
         if values[6] == values[7] == values[8] != ' ': # across the top
             print("\nGame Over.\n")                            
-            main()
+            who_win(winner_number)
             break
         elif values[3] == values[4] == values[5] != ' ': # across the middle
             print("\nGame Over.\n")
-            main()              
+            who_win(winner_number)           
             break
         elif values[0] == values[1] == values[2] != ' ': # across the bottom
             print("\nGame Over.\n")
-            main()
+            who_win(winner_number)
             break             
         elif values[0] == values[3] == values[6] != ' ': # down the left side
             print("\nGame Over.\n")
-            main()
+            who_win(winner_number)
             break           
         elif values[1] == values[4] == values[7] != ' ': # down the middle
             print("\nGame Over.\n")
-            main()
+            who_win(winner_number)
             break
         elif values[2] == values[5] == values[8] != ' ': # down the right side
             print("\nGame Over.\n")
-            main()
+            who_win(winner_number)
             break       
         elif values[6] == values[4] == values[2] != ' ': # diagonal
             print("\nGame Over.\n")
-            main()
+            who_win(winner_number)
             break
         elif values[0] == values[4] == values[8] != ' ': # diagonal
             print("\nGame Over.\n")
-            main()
+            who_win(winner_number)
             break
         else:
             next_turn()
+        
 
+
+
+def who_win(winner_number):
+    #winner_number = 0 (AI)
+    #winner_number = 1 (Player)
+    #winner_number = 2 (Draw)
+    global win_count
+    global lose_count
+    global draw_count
+    
+    if winner_number == 0:
+        print("AI wins")
+        lose_count += 1
+    elif winner_number == 1:
+        print(player_name, "Wins")
+        win_count += 1
+    elif winner_number == 2:
+        print("Its a draw...")
+        draw_count += 1
+    
+    print("\t--------------------------------")
+    print("\t              SCOREBOARD       ")
+    print("\t--------------------------------")
+    
+    print("win: ", win_count, " lose: ", lose_count, " draw: ", draw_count)
+    main()
+        
 
 def main():
-    
+    global values
     #reset
     values = [' ' for x in range(9)]
     player_choice = ''
