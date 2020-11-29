@@ -1,3 +1,6 @@
+#TIC-TAC-TOE Console Version (AI with random abilities..XD)
+#29 November 2020
+
 import random
 import sys
 
