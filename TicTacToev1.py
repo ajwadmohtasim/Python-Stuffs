@@ -186,43 +186,22 @@ def process_input(cur_player, cur_choice):
     # who_win(winner_number)
     
     while True:
-        if values[6] == values[7] == values[8] != ' ': # across the top
-            print("\nGame Over.\n")                            
-            who_win(winner_number)
-            break
-        elif values[3] == values[4] == values[5] != ' ': # across the middle
-            print("\nGame Over.\n")
-            who_win(winner_number)           
-            break
-        elif values[0] == values[1] == values[2] != ' ': # across the bottom
-            print("\nGame Over.\n")
-            who_win(winner_number)
-            break             
-        elif values[0] == values[3] == values[6] != ' ': # down the left side
-            print("\nGame Over.\n")
-            who_win(winner_number)
-            break           
-        elif values[1] == values[4] == values[7] != ' ': # down the middle
-            print("\nGame Over.\n")
-            who_win(winner_number)
-            break
-        elif values[2] == values[5] == values[8] != ' ': # down the right side
-            print("\nGame Over.\n")
-            who_win(winner_number)
-            break       
-        elif values[6] == values[4] == values[2] != ' ': # diagonal
-            print("\nGame Over.\n")
-            who_win(winner_number)
-            break
-        elif values[0] == values[4] == values[8] != ' ': # diagonal
+        if (
+            values[6] == values[7] == values[8] != ' ' or# across the top
+            values[3] == values[4] == values[5] != ' ' or# across the middle
+            values[0] == values[1] == values[2] != ' ' or# across the bottom
+            values[0] == values[3] == values[6] != ' ' or# down the left side
+            values[1] == values[4] == values[7] != ' ' or# down the middle
+            values[2] == values[5] == values[8] != ' ' or# down the right side
+            values[6] == values[4] == values[2] != ' ' or# diagonal
+            values[0] == values[4] == values[8] != ' ' # diagonal
+            ):
             print("\nGame Over.\n")
             who_win(winner_number)
             break
         else:
             next_turn()
         
-
-
 
 def who_win(winner_number):
     #winner_number = 0 (AI)
