@@ -166,10 +166,16 @@ def process_input(cur_player, cur_choice):
     print_tic_tac_toe(values)
     
     global winner_number
+    
+
     if cur_player == player_choice:
         winner_number = 1
     elif cur_player == AI_choice:
         winner_number = 0
+
+    if ' ' not in values:
+        winner_number = 2
+        who_win(winner_number)
         
     # #check tie
     # if ' ' not in values[0-9]:
