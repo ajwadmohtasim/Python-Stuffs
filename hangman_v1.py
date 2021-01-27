@@ -89,7 +89,6 @@ words = ["apple", "ball", "hat", "dog", "physics", "chemistry", "mathematics",
          "cat", "burger", "pizza", "hamburger", "college"] #words list
 
 word_dict = {"lives" : 6}
-word_dict_reset = {"lives" : 6}
 
 #word select -  shall only be called once for each game
 def word_select(words):
