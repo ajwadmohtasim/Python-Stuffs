@@ -259,7 +259,6 @@ def game_over():
     print("GAME OVER...")
     print("############")
     scoreboard_stats["lose"] = scoreboard_stats["lose"] + 1
-    print("lose: ", scoreboard_stats["lose"])
     main()
 
 def main():
