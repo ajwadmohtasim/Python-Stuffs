@@ -237,19 +237,9 @@ def update_word(answer_input):
 
 
 def hangman_state(lives):
-    if lives == 6:
-        word_dict["hangman_state"] = hangman_picture[0]
-    elif lives == 5:
-        word_dict["hangman_state"] = hangman_picture[1]
-    elif lives == 4:
-        word_dict["hangman_state"] = hangman_picture[2]
-    elif lives == 3:
-        word_dict["hangman_state"] = hangman_picture[3]
-    elif lives == 2:
-        word_dict["hangman_state"] = hangman_picture[4]
-    elif lives == 1:
-        word_dict["hangman_state"] = hangman_picture[5]
-    elif lives == 0:
+    if lives != 0:
+        word_dict["hangman_state"] = hangman_picture[len(hangman_picture) - (1 + lives)]
+    else:
         word_dict["hangman_state"] = hangman_picture[6]
         game_over()
     get_input()
